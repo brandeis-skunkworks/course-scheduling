@@ -1,7 +1,7 @@
 # Vagrant
 To run this in your system:
 
-Open your command prompt and type:
+Clone the repository to your system. You could do it by opening your command prompt and typing:
 
 git clone https://github.com/fernandoaestrella/Skunkworks-Course-Scheduling/tree/master
 
@@ -14,3 +14,12 @@ And then run:
 
 vagrant up
 
+It's been set up to install apache2, MySQL and php.
+
+Just open a command prompt in the directory that has the Vagrantfile and run "vagrant up"
+
+You should be able to open the website at localhost:4567
+
+test, via ssh or however, that you have MySQL and php installed. Although we can decide to use python, which comes preinstalled with ubuntu.
+
+Remember that you need a few GBs of space
