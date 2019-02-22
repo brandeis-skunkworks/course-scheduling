@@ -23,3 +23,5 @@ You should be able to open the website at localhost:4567
 test, via ssh or however, that you have MySQL and php installed. Although we can decide to use python, which comes preinstalled with ubuntu.
 
 Remember that you need a few GBs of space
+
+All I modified (that has an effect on installation) was the Vagrantfile and created the bootstrap.sh shell script as suggeested in one of the tutorials. All tutorials used are mentioned in a file inside the "Documents" directory
