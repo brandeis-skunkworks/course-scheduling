@@ -1,0 +1,8 @@
+Open cmd in the same directory as the Vagrantfile
+Type "vagrant up"
+To access the server from outside, install ngrok in your host machine (not the virtual one) and then type "ngrok http 4567"
+To acess the virtual machine, type "vagrant ssh"
+
+MySQL
+user: root 
+password: password
