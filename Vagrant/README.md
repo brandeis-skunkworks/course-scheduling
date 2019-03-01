@@ -3,7 +3,7 @@ To run this in your system:
 
 Clone the repository to your system. You could do it by opening your command prompt and typing:
 
-git clone https://github.com/fernandoaestrella/Skunkworks-Course-Scheduling/tree/master
+git clone https://github.com/brandeis-skunkworks/course-scheduling.git
 
 Or you could clone from Github Desktop.
 Then, in the command prompt, change directory (cd) into the new folder. It might look something like:
