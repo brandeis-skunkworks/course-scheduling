@@ -1,0 +1,3 @@
+vagrant init ubuntu1204_LAMP file:C:\Users\ferna\Documents\Vagrant\boxes
+
+Change the file location with yours

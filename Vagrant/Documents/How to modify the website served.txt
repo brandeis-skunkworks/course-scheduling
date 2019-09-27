@@ -1,0 +1,5 @@
+To access the website, in a web browser in your host machine go to localhost:4567.
+If you then append any file name to it, like localhost:4567/test.html, and the file is in /var/www, it will be served.
+The default file served by apache if it does not find an index.html file in /var/www is a file which shows the contents of the Vagrant folder.
+
+TL;DR: If you put an index.html file in the Vagrant folder, it will be served when visiting localhost:4567. You can then modify it in your host machine however you would like.

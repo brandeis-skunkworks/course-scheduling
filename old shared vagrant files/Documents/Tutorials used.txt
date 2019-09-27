@@ -1,0 +1,11 @@
+How to get started using Vagrant (installation, setup, download box, ssh, synced folder, installing apache, network, sharing, stoping vagrant):
+https://www.vagrantup.com/intro/getting-started/index.html
+
+How to install LAMP in Vagrant, how to set up and use a box:
+https://www.howtoforge.com/tutorial/vagrant-ubuntu-linux-apache-mysql-php-lamp/
+
+How to have someone in a team join in:
+https://www.ctl.io/blog/post/managing-a-team-development-environment-with-vagrant-and-chef/
+
+Bringing everything together:
+https://www.taniarascia.com/how-to-install-apache-php-7-1-and-mysql-on-ubuntu-with-vagrant/

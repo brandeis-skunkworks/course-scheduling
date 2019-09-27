@@ -1,7 +1,8 @@
-Open cmd in the same directory as the Vagrantfile
+Open cmd
 Type "vagrant up"
-To access the server from outside, install ngrok in your host machine (not the virtual one) and then type "ngrok http 4567"
+To access the server from outside, type "ngrok http 4567"
 To acess the virtual machine, type "vagrant ssh"
+To edit the apache website, put an "index.html" file in the Vagrant folder and edit it.
 
 MySQL
 user: root 
