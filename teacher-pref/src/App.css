@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.app_header {
+  background: aqua;
+  height: 100vh;
+  width: 15%;
+  text-align: center;
+  float: left;
+}
+
+.pref_main {
+  background: white;
+  height: 100vh;
+  width: 37.5%;
+  text-align: center;
+  float: left;
+}
+
+.pref_block {
+  background: goldenrod;
+  height: 100vh;
+  width: 47.5%;
+  text-align: center;
+  float: left;
+}
+
