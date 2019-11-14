@@ -34,3 +34,9 @@ vagrant up
 To destroy the virtual machine:
 
 vagrant destroy
+
+
+Things to download:
+Github Desktop (optional)
+Vagrant
+VirtualBox
