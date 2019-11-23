@@ -1,0 +1,70 @@
+.sidebar {
+    background-color: cornflowerblue;
+    color: white;
+  }
+  
+  h3 {
+    font-size: 25px;
+    color: white;
+  }
+  
+  .sidebar-button {
+    text-align: left;
+    color: white;
+    background-color: rgb(92, 192, 255);
+    font-size: 90%;
+    border: 0px;
+  }
+  .course-selection {
+    width: 100%;
+    overflow-y: scroll;
+  }
+  
+  #courses-head {
+    text-align: center;
+    color: #6fc4f9;
+  }
+  
+  .card-btn {
+    background-color: #6fc4f9;
+    width: 90%;
+    height: 90%;
+  }
+  
+  .card-title {
+    font-size: 85%;
+  }
+  
+  .card-subtitle {
+    font-size: 25%;
+  }
+  
+  .display-title {
+    font-size: 120%;
+  }
+  
+  .display-subtitle {
+    font-size: 70%;
+  }
+  
+  .menu-bar {
+    background-color: rgb(92, 192, 255);
+    padding-left: 30px;
+    padding-top: 10px;
+  }
+  
+  .display {
+    margin-top: 20%;
+  }
+  
+  #description {
+    font-size: 70%;
+  }
+  
+  .card-clicked {
+    background-color: turquoise;
+  }
+  
+  .button-clicked {
+    background-color: turquoise;
+  }
