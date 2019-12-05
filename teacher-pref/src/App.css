@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 p {
@@ -7,32 +8,19 @@ p {
   padding: 0;
 }
 
-.container {
+.container-fluid {
+  height: 100vh;
+}
+
+.col_1, .col_2, .col_3 {
+  height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
-.app_header {
+.col_1 {
   background: aqua;
-  height: 100vh;
-  width: 15%;
-  text-align: center;
-  float: left;
 }
 
-.pref_main {
+.col_2 {
   background: white;
-  height: 100vh;
-  width: 37.5%;
-  text-align: center;
-  float: left;
 }
-
-.pref_block {
-  background: goldenrod;
-  height: 100vh;
-  width: 47.5%;
-  text-align: center;
-  float: left;
-}
-

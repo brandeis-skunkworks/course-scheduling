@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
+
+.empty_form {
+    margin: 20px auto;
+}
+  
+.empty_img {
+    height: 200px;
+    margin: 25% auto 0 auto;
+}
+
+form > * {
+    margin: 10px auto;
+}
+
+.form_title {
+    color: royalblue;
+    font-weight: bold;
+}
+
+.btn_form {
+    margin: 5px;
+}
+
+.info {
+    text-align: center;
+    margin: 0 15%;
+}
