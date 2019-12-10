@@ -26,10 +26,31 @@ function App() {
 }
 
 function Header() {
+  // return (
+  //   <div className="app_header">
+  //     <p>This is the header</p>
+  //   </div>
+  // );
   return (
     <div className="app_header">
-      <p>This is the header</p>
+      <h2 className="app_name">Course Scheduling Platform</h2>
+      <div></div>
+      <SideButton name="Academic Info"/> <div/>
+      <SideButton name="Teacher's Req"/> <div/>
+      <SideButton name="Manual Scheduling"/> <div/>
+      <SideButton name="Automatic Scheduling"/> <div/>
+      <SideButton name="Contact"/> <div/>
+      <SideButton name="Export to CSV"/> <div/>
+      <SideButton name="Admin" link= "/Admin"/>
     </div>
+  );
+}
+
+function SideButton(props) {
+  return (
+    <a href="#">
+      <button id={props.name} class="btn btn-link">{props.name}</button>
+    </a>
   );
 }
 

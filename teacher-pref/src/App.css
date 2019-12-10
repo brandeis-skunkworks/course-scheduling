@@ -24,3 +24,11 @@ p {
 .col_2 {
   background: white;
 }
+
+.app_header {
+  text-align: center;
+}
+
+.app_name {
+  margin: 10px auto;
+}
