@@ -49,7 +49,7 @@ function Header() {
 function SideButton(props) {
   return (
     <a href="#">
-      <button id={props.name} class="btn btn-link">{props.name}</button>
+      <button id={props.name} className="btn btn-link">{props.name}</button>
     </a>
   );
 }

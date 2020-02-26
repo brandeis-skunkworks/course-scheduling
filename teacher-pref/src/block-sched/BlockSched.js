@@ -3,7 +3,7 @@ import './BlockSched.css';
 import blocks from './blocks.js';
 
 import {connect} from 'react-redux';
-import {chosenCourse} from '../redux/actions';
+import {chosenCourse, removeChosenCourse, addChosenCourse, deleteChosenCourse} from '../redux/actions';
 
 class TimeBlockBoard extends React.Component {
     constructor(props) {
@@ -12,10 +12,35 @@ class TimeBlockBoard extends React.Component {
         blocks: blocks
       }
     }
+
+    handleClick(course) {
+      if (course.id in this.props.value) {
+        return (course) => {
+          Object.entries(this.props.chosen_courses).map(arr => arr[1]).forEach(val => this.props.deleteChosenCourse(val.id));
+          this.props.addChosenCourse(course);
+        }
+      }
+      if (course.id in this.props.chosen_courses) {
+        return (course) => {
+          this.props.deleteChosenCourse(course.id);
+          this.props.removeChosenCourse();
+        }
+      } else {
+        return (course) => {
+          Object.entries(this.props.chosen_courses).map(arr => arr[1]).forEach(val => {
+            if (val.id in this.props.value) {
+              this.props.deleteChosenCourse(val.id);
+            }
+          });
+          this.props.chosenCourse(course);
+          this.props.addChosenCourse(course);
+        }
+      }
+    }
   
     renderTimeBlock() {
       const blocks = this.state.blocks.map((block) => 
-        <TimeBlock block={block} handleClick={this.props.chosenCourse} value={this.props.value}/>
+        <TimeBlock block={block} chosen_courses={this.props.chosen_courses} review={this.props.review} handleClick={this.handleClick(block)} value={this.props.value}/>
       );
   
       return (
@@ -78,6 +103,8 @@ function TimeBlock(props) {
         default: 
           classBtn = "btn btn-light btn-lg block_btn";
       }
+    } else if (!props.review && (id in props.chosen_courses)) {
+      classBtn = "btn btn-secondary btn-lg block_btn"
     }
   
     return (
@@ -95,12 +122,17 @@ function TimeBlock(props) {
 
 const mapStateToProps = state => ({
     chosen: state.chosen,
+    chosen_courses: state.chosen_courses,
     value: state.value,
+    review: state.review,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    chosenCourse: (chosen) => {dispatch(chosenCourse(chosen))}
+    chosenCourse: (chosen) => { dispatch(chosenCourse(chosen)) } ,
+    removeChosenCourse: () => { dispatch(removeChosenCourse()) },
+    addChosenCourse: (chosen) => { dispatch(addChosenCourse(chosen)) },
+    deleteChosenCourse: (id) => { dispatch(deleteChosenCourse(id)) },
   };
 };
 

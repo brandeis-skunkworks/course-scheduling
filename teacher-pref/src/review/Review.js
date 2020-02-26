@@ -1,5 +1,6 @@
 import React from 'react';
 import './Review.css';
+import blocks from '../block-sched/blocks.js';
 
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
@@ -9,14 +10,14 @@ import { connect } from 'react-redux';
 import { deletePreference } from '../redux/actions'
 
 function Review(props) {
-    const mustList = Object.keys(props.value).filter(key => props.value[key].preference === "0").map(key =>
-        <ReviewCard id={key} info={props.value[key]} deletePreference={props.deletePreference} textstyle="text-danger"/>
+    const mustList = Object.entries(props.value).filter(val => props.value[val[0]].preference === "0").map(val =>
+        <ReviewCard id={val[0]} info={val[1]} deletePreference={props.deletePreference} textstyle="text-danger"/>
     );
-    const prefList = Object.keys(props.value).filter(key => props.value[key].preference in ["1", "2", "3"]).map(key =>
-        <ReviewCard id={key} info={props.value[key]} deletePreference={props.deletePreference} textstyle="text-warning"/>
+    const prefList = Object.entries(props.value).filter(val => ["1", "2", "3"].includes(props.value[val[0]].preference)).map(val =>
+        <ReviewCard id={val[0]} info={val[1]} deletePreference={props.deletePreference} textstyle="text-warning"/>
     );
-    const noList = Object.keys(props.value).filter(key => props.value[key].preference === "4").map(key =>
-        <ReviewCard id={key} info={props.value[key]} deletePreference={props.deletePreference} textstyle="text-secondary"/>
+    const noList = Object.entries(props.value).filter(val => props.value[val[0]].preference === "4").map(val =>
+        <ReviewCard id={val[0]} info={val[1]} deletePreference={props.deletePreference} textstyle="text-secondary"/>
     );
 
     return (
@@ -47,7 +48,11 @@ function CardAccordian(props) {
 }
 
 function ReviewCard(props) {
-    const block = props.info.block;
+    function findInfo(id) {
+        return blocks.filter(block => block.id === id)[0];
+    }
+
+    const block = findInfo(props.id);
     const block_value = props.info;
 
     return (
@@ -60,7 +65,7 @@ function ReviewCard(props) {
                         <p>Indication: {block_value.indication}</p>
                         <p>Description: {block_value.description}</p>
                     </div>
-                    <button type="button" class="btn btn-secondary btn_form" onClick={() => props.deletePreference(block.id)}>Delete</button>
+                    <button type="button" class="btn btn-secondary btn_form" onClick={() => props.deletePreference(props.id)}>Delete</button>
                 </div>
             </div>
         </div>

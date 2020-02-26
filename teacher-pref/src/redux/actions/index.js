@@ -5,6 +5,26 @@ export const chosenCourse = (course) => {
     };
 };
 
+export const removeChosenCourse = () => {
+    return {
+        type: 'REMOVE'
+    };
+};
+
+export const addChosenCourse = (course) => {
+    return {
+        type: 'ADD_CHOICE',
+        payload: course
+    };
+};
+
+export const deleteChosenCourse = (id) => {
+    return {
+        type: 'REMOVE_CHOICE',
+        payload: id
+    };
+};
+
 export const addPreference = (pref) => {
     return {
         type: 'ADD_PREFERENCE',

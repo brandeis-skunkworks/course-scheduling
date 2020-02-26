@@ -4,7 +4,7 @@ import AddPreferenceForm from '../pref-form/PrefForm'
 import Review from '../review/Review'
 
 import { connect } from 'react-redux';
-import { toggleReview, resetAll } from '../redux/actions'
+import { toggleReview, resetAll, removeChosenCourse } from '../redux/actions'
 
 class MainSection extends React.Component {
   clearAll() {
@@ -13,21 +13,22 @@ class MainSection extends React.Component {
 
   review() {
     this.props.toggleReview();
+    this.props.removeChosenCourse();
   }
 
   renderButton() {
     if (!this.props.isReviewing) {
       return (
         <div>
-          <button type="button" class="btn_1 btn btn-warning" onClick={() => this.review()}>Review</button>
-          <button type="button" class="btn_2 btn btn-outline-danger" onClick={() => this.clearAll()}>Clear All</button>
+          <button type="button" className="btn_1 btn btn-warning" onClick={() => this.review()}>Review</button>
+          <button type="button" className="btn_2 btn btn-outline-danger" onClick={() => this.clearAll()}>Clear All</button>
         </div>
       );
     } else {
       return (
         <div>
-          <button type="button" class="btn_1 btn btn-warning" onClick={() => this.review()}>Back</button>
-          <button type="button" class="btn_2 btn btn-success" onClick={() => {}}>Submit</button>
+          <button type="button" className="btn_1 btn btn-warning" onClick={() => this.review()}>Back</button>
+          <button type="button" className="btn_2 btn btn-success" onClick={() => {}}>Submit</button>
         </div>
       );
     }
@@ -63,7 +64,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleReview: () => { dispatch(toggleReview()) },
-    resetAll: () => { dispatch(resetAll()) }
+    resetAll: () => { dispatch(resetAll()) },
+    removeChosenCourse: () => { dispatch(removeChosenCourse()) }
   };
 };
 
