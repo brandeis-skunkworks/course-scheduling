@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ModalBlock from './modal-block/Modal'
 import TimeBlockBoard from './block-sched/BlockSched'
+import ImageBlockSched from './block-sched/ImageBlockSched'
 import MainSection from './main/MainSection'
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
         <div className="col_3 col-xl-6 col-lg-6 col-md-7 col-sm-7">
           <div className="time_block_container">
             <ModalBlock />
-            <TimeBlockBoard />
+            {/* <TimeBlockBoard /> */}
+            <ImageBlockSched />
           </div>
         </div>
       </div>

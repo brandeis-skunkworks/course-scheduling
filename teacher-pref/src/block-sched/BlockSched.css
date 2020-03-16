@@ -7,3 +7,7 @@
 .card-subtitle {
     font-size: 90%;
 }
+
+.container {
+    position: relative;
+}

@@ -69,7 +69,7 @@ class TimeBlockBoard extends React.Component {
         </div>
       );
     }
-  
+
     render() {
       return (
         <div className="pref_block">
