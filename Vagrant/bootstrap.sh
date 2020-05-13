@@ -14,5 +14,8 @@ sudo apt-get -y install mysql-server libapache2-mod-auth-mysql php5-mysql
 # Installing PHP and it's dependencies
 sudo apt-get -y install php5 libapache2-mod-php5 php5-mcrypt1
 
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 # Updating everything. WARNING: uses quite some memory
 # sudo apt-get update && sudo apt-get upgrade
