@@ -1,5 +1,5 @@
 // import React, {Component} from 'react';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 // import React from 'react';
 import './App.css';
 import Main from './Main.js';
@@ -13,9 +13,9 @@ var currentPage; //allows for functions to call updateDisplay
 function App(props) {
   const [state, setState] = useState('');
 
-    // const [posts, setPosts] = useState([])
+  // Test for pushing data from NodeJS to React
   useEffect(() => {
-    fetch("http://localhost:9000/testAPI")
+    fetch("http://localhost:3000/")
       .then(response => response.text())
       .then(response => {
         setState(response) // new
@@ -31,33 +31,33 @@ function App(props) {
 }
 
 //   constructor(props) {
-  //     super(props);
-  //     this.state = { apiResponse: "" };
+//     super(props);
+//     this.state = { apiResponse: "" };
 //   }
-  
+
 //   callAPI() {
 //     fetch("http://localhost:9000/testAPI")
 //         .then(res => res.text())
 //         .then(res => this.setState({ apiResponse: res }));
 //   }
-  
+
 //   componentWillMount() {
-  //     this.callAPI();
-  //   }
-  // }
+//     this.callAPI();
+//   }
+// }
 
 // class App extends Component {
 //   constructor(props) {
 //     super(props);
 //     this.state = { apiResponse: "" };
 //   }
-  
+
 //   callAPI() {
 //     fetch("http://localhost:9000/testAPI")
 //         .then(res => res.text())
 //         .then(res => this.setState({ apiResponse: res }));
 //   }
-  
+
 //   componentDidMount() {
 //     this.callAPI();
 //   }
