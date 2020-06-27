@@ -37,6 +37,9 @@ vagrant destroy
 
 
 Things to download:
+
 Github Desktop (optional)
+
 Vagrant
+
 VirtualBox
