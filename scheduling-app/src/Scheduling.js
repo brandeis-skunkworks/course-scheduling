@@ -2,7 +2,7 @@ import React from 'react';
 import blocks from './blocks.png';
 import './Scheduling.css';
 import { Switch, Route, Link } from 'react-router-dom';
-import './Admin';
+import './Reminder';
 
 var currentPage;
 
@@ -55,11 +55,11 @@ class SchedulingPage extends React.Component {
   render() {
     return (
       <div className="app">
-        <form onSubmit={this.onSubmit}>
+        {/* <form onSubmit={this.onSubmit}>
           <input type="text" placeholder="Name" ref="name" />
           <input type="text" placeholder="Email" ref="email" />
           <input type="submit" />
-        </form>
+        </form> */}
         <div class="row">
           <div class="col-lg-2 col-md-0 col-sm-0 menu-bar align-items-end">
             <Navigation />
@@ -110,7 +110,7 @@ function Navigation(props) {
       <SideButton name="Automatic Scheduling" /> <div />
       <SideButton name="Contact" /> <div />
       <SideButton name="Export to CSV" /> <div />
-      <SideButton name="Admin" link="/Admin" />
+      <SideButton name="Teacher Reminder" link="/reminder" />
     </div>
   );
 }
