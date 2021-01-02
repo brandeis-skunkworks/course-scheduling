@@ -68,9 +68,7 @@ class SchedulingPage extends React.Component {
             <BlockSystem />
           </div>
           <div class="col-lg-5 col-md-6 col-sm-6">
-            <CourseSelection
-              displayId={this.state.currentDisplay}
-            />
+            <CourseSelection displayId={this.state.currentDisplay} />
           </div>
         </div>
       </div>
