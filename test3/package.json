@@ -19,7 +19,7 @@
     "compression": "^1.5.2",
     "method-override": "^2.3.0",
     "glob": "^6.0.4",
-    "sequelize": "^3.5.1",
+    "sequelize": "^5.15.1",
     "mysql": "^2.8.0",
     "pug": "^2.0.3"
   },
