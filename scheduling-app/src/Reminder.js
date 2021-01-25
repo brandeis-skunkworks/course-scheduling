@@ -67,7 +67,6 @@ import Navigation from './Navigation.js';
             <Navigation />
           </div>
           <div class="col-lg-5 col-md-6 col-sm-6">
-            this is where the teachers table will go
             <table class="table">
               <thead class="thead-dark">
                 <tr>
