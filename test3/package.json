@@ -21,7 +21,7 @@
     "glob": "^6.0.4",
     "sequelize": "^3.5.1",
     "mysql": "^2.8.0",
-    "pug": "^2.0.3"
+    "pug": "^3.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
