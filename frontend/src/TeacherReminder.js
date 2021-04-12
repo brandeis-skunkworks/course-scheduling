@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './Admin.css';
 import Navigation from './Navigation.js';
@@ -7,7 +8,7 @@ import { useState, useEffect } from 'react';
 /**
  * TeacherReminder page to view and send responese
  * //TODO create some kind of listview reading from a database
- */
+ */ 
 const TeacherReminder = () => {
   const [professors, setProfessors] = useState([])
 
@@ -19,17 +20,59 @@ const TeacherReminder = () => {
     });
   }, [])
 
-  function Row(props) {
-    return(
-      <tr class={props.state}>
-        <th scope="row">{props.first}</th>
-        <td>{props.last}</td>
-        <td>{props.email}</td>
-        <td>{props.state == "table-success" ? "view" :
-          props.state != "table-danger" ? "": "send reminder"}</td>
-      </tr>
-    );
+  class Row extends React.Component{
+    constructor(props){
+      super(props);
+      this.changeState = this.changeState.bind(this);
+      this.state = {
+        status: props.status,
+        first: props.first,
+        last: props.last,
+        email: props.email,
+      };
+    }
+    click(){
+      console.log("hello");
+    }
+
+    changeState(){
+      if(this.state.status == "table-success"){
+        this.setState({status: "table-danger"});
+      }else{
+        this.setState({status: "table-success"});
+      }
+    }
+
+    render(){
+      return(
+        <tr class={this.state.status}>
+          <th scope="row">{this.state.first}</th>
+          <td>{this.state.last}</td>
+          <td>{this.state.email}</td>
+          <td>
+            {this.state.status == "table-success" ? "Has Responded" :
+            this.state.status != "table-danger" ? "": "Has Not Responded Yet"}
+          </td>
+          <td>
+            <button onClick={this.click}>Send</button>
+            <button onClick={this.changeState}>Toggle Response Status</button>
+          </td>
+        </tr>
+      )
+    }
   }
+
+  // function Row(props) {
+  //   return(
+  //     <tr class={props.state}>
+  //       <th scope="row">{props.first}</th>
+  //       <td>{props.last}</td>
+  //       <td>{props.email}</td>
+  //       <td>{props.state == "table-success" ? "view" :
+  //         props.state != "table-danger" ? "": "send reminder"}</td>
+  //     </tr>
+  //   );
+  // }
     
   return (
     <div className="app">
