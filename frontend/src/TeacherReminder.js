@@ -17,6 +17,7 @@ const TeacherReminder = () => {
     ).then(response=>response.json()
     ).then(data=>{ 
       setProfessors(data)
+      console.log(data)
     });
   }, [])
 
@@ -26,13 +27,12 @@ const TeacherReminder = () => {
       this.changeState = this.changeState.bind(this);
       this.state = {
         status: props.status,
-        first: props.first,
-        last: props.last,
+        name: props.name,
         email: props.email,
       };
     }
     click(){
-      console.log("hello");
+      console.log("This is where the shell command used to send emails will be executed");
     }
 
     changeState(){
@@ -46,8 +46,7 @@ const TeacherReminder = () => {
     render(){
       return(
         <tr class={this.state.status}>
-          <th scope="row">{this.state.first}</th>
-          <td>{this.state.last}</td>
+          <th scope="row">{this.state.name}</th>
           <td>{this.state.email}</td>
           <td>
             {this.state.status == "table-success" ? "Has Responded" :
@@ -65,7 +64,7 @@ const TeacherReminder = () => {
   // function Row(props) {
   //   return(
   //     <tr class={props.state}>
-  //       <th scope="row">{props.first}</th>
+  //       <th scope="row">{props.name}</th>
   //       <td>{props.last}</td>
   //       <td>{props.email}</td>
   //       <td>{props.state == "table-success" ? "view" :
@@ -84,14 +83,13 @@ const TeacherReminder = () => {
           <table class="table">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">First</th>
-                <th scope="col col-lg-4 col-md-0 col-sm-0">Last</th>
+                <th scope="col">name</th>
                 <th scope="col col-lg-4 col-md-0 col-sm-0">Email</th>
                 <th scope="col col-lg-4 col-md-0 col-sm-0">Response</th>
               </tr>
             </thead>
             <tbody>
-            {professors.map(professor => <Row first={professor.name} last="-" email={professor.email} state = {true ? "table-success" : false ? "table-danger" : ""}></Row>)}
+            {professors.map(professor => <Row name={professor.name} email={professor.email} status={professor.hasResponded == "true" ? "table-success" : "table-danger"}></Row>)}
             </tbody>
           </table>
         </div>
