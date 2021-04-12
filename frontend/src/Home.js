@@ -4,7 +4,7 @@ import './Scheduling.css';
 import { Switch, Route, Link } from 'react-router-dom';
 // import './Reminder';
 import Navigation from './Navigation.js';
-previeimport './Admin.css';
+import './Admin.css';
 
 
 var currentPage;
