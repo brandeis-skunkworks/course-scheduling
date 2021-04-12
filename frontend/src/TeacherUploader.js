@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 function TeacherUploader(props)  {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [response, setResponse] = useState(true)
+  const [hasResponded, setResponseStatus] = useState('')
   const [professors, setProfessors] = useState([])
   // const [id, setID] = useState(0)
 
@@ -30,7 +30,7 @@ function TeacherUploader(props)  {
     fetch('http://localhost:1337/professor', {
         method: 'POST',
         // We convert the React state to JSON and send it as the POST body
-        body: JSON.stringify({name: name, email: email})
+        body: JSON.stringify({name: name, email: email, hasResponded: hasResponded})
       }).then(function(response) {
         // return response.json();
       }).then(fetch('http://localhost:1337/professor'
@@ -79,9 +79,8 @@ function TeacherUploader(props)  {
               Email: <input type="text" value={email} name="email" onChange={e => setEmail(e.target.value)} /> <br />
               Courses Assigned (separated by semicolons, only one space in each course name between the department name and the course code e.g.: "COSI 011A", uppercase letters only): <input type="text" value={''} name="name"  /> <br />
               Blocks Available (separated by semicolons, no spaces, uppercase letters only): <input type="text" value={''} name="name" /> <br />
-              Assigned Blocks: <input type="text" value={''} name="name"  /> <br />
-              {/* */}
-              {/* Responded: <input type="boolean" value={} name="response"  /> <br></br> */}
+              Assigned Blocks: <input type="text" value={''} name="name"  /> <br /> 
+              Responded: <input type="text" value={hasResponded} name="response" onChange={e => setResponseStatus(e.target.value)} /> <br></br>
             </label>
             <input type="submit" value="Submit" />
           </form>
@@ -89,7 +88,7 @@ function TeacherUploader(props)  {
         <div class="col-lg-5 col-md-6 col-sm-6">
           <center>Current list of teachers:</center>
           <br></br>
-          {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id} <form onSubmit={(event) => handleDelete(event, professor.id)} > <input type="submit" value="Delete" /> </form></div>)}
+          {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id}, Has Responded: {professor.hasResponded} <form onSubmit={(event) => handleDelete(event, professor.id)} > <input type="submit" value="Delete" /> </form></div>)}
         </div>
       </div>
     </div>
