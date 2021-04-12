@@ -14,6 +14,7 @@ function TeacherUploader(props)  {
   const [email, setEmail] = useState('')
   const [response, setResponse] = useState(true)
   const [professors, setProfessors] = useState([])
+  // const [id, setID] = useState(0)
 
   useEffect(() => {
     fetch('http://localhost:1337/professor'
@@ -32,36 +33,30 @@ function TeacherUploader(props)  {
         body: JSON.stringify({name: name, email: email})
       }).then(function(response) {
         // return response.json();
-      });
-
-    fetch('http://localhost:1337/professor'
+      }).then(fetch('http://localhost:1337/professor'
       ).then(response=>response.json()
       ).then(data=>{ 
         setProfessors(data)
         console.log(data)
       }
-      );
+      ));
 
     event.preventDefault();
   }
 
   const handleDelete = (event, id) => {
 
-    fetch('http://localhost:1337/professor/5', {
+    fetch('http://localhost:1337/professor/' + id, {
         method: 'DELETE',
-      });
-
-    fetch('http://localhost:1337/professor'
+      }).then(fetch('http://localhost:1337/professor'
       ).then(response=>response.json()
       ).then(data=>{ 
         setProfessors(data)
         console.log(data)
       }
-      );
+      )).then(alert('Professor ' + id + ' was deleted'));
 
-    alert('Professor ' + id + ' was deleted');
-
-    event.preventDefault();
+    //event.preventDefault();
   }
 
   function handleClick(props) {
@@ -94,7 +89,7 @@ function TeacherUploader(props)  {
         <div class="col-lg-5 col-md-6 col-sm-6">
           <center>Current list of teachers:</center>
           <br></br>
-          {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id} <form onSubmit={handleDelete} > <input type="submit" value="Delete" /> </form></div>)}
+          {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id} <form onSubmit={(event) => handleDelete(event, professor.id)} > <input type="submit" value="Delete" /> </form></div>)}
         </div>
       </div>
     </div>
