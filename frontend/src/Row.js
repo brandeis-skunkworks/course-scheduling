@@ -1,6 +1,9 @@
 import React from 'react';
+import 'child_process';  // replace ^ if using ES modules
+
 
 class Row extends React.Component{
+
 constructor(props){
     super(props);
     console.log(this)
@@ -14,6 +17,11 @@ constructor(props){
 
 click(){
     console.log("This is where the shell command used to send emails will be executed");
+    const { exec } = require("child_process");
+    // exec("ls -la", (error, stdout, stderr)); 
+    
+
+    // "echo "When would you like to teach?" | mail -s "Pick your course time" -S "from=donotreply@cs.brandeis.edu" pollack@brandeis.edu"
 }
 
 changeState = (id, event) => {
