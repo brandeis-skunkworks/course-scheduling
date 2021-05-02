@@ -33,5 +33,5 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
- 'GET /professor/reminder': { action: 'reminder' }
+ 'GET /professor/reminder/:professorId': { action: 'reminder' }
 };
