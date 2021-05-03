@@ -10,6 +10,7 @@
     "popper.js": "1.16.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-image-mapper": "0.0.15",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "typescript": "3.4.3"

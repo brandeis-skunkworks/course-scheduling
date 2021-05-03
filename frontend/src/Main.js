@@ -7,7 +7,7 @@ import TeacherUploader from './TeacherUploader.js';
 import Home from './Home.js';
 import AcademicInfo from './AcademicInfo.js';
 import Navigation from './Navigation.js';
-
+import TeacherRequirements from './TeacherRequirements.js'
 
 const Main = () => {
   return (
@@ -22,6 +22,7 @@ const Main = () => {
           <Route exact path='/scheduling'> <Scheduling /> </Route>
           <Route exact path='/teacher-reminder'> <TeacherReminder /> </Route>
           <Route exact path='/teacher-uploader'> <TeacherUploader /> </Route>
+          <Route exact path='/teacher-requirements'> <TeacherRequirements /> </Route>
         </Switch>
       </div>
     </div>

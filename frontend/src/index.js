@@ -11,9 +11,15 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
-import AcademicInfo from './AcademicInfo';
 
-const store = configureStore();
+import {createStore} from 'redux';
+import rootReducer from './redux/reducers';
+
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+// const store = configureStore();
 
 ReactDOM.render((
     <Provider store={store}>
@@ -33,3 +39,10 @@ ReactDOM.render((
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// ReactDOM.render(
+//     <Provider store={store}>
+//         <App />
+//     </Provider>, 
+//     document.getElementById('root')
+// );
