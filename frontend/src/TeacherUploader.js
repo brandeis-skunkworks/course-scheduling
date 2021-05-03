@@ -64,34 +64,27 @@ function TeacherUploader(props)  {
   }
 
   return (
-    <div className="app">
-      <div class="row">
-        <div class="col-lg-2 col-md-0 col-sm-0 menu-bar align-items-end">
-          <div>
-            <Navigation />
-          </div>
-        </div>
-        <div class="col-lg-5 col-md-6 col-sm-6">
-          <form onSubmit={handleSubmit}>
-            <label>
-              <center>New Professor Input Form:</center><br />  
-              Name: <input type="text" value={name} name="name" onChange={e => setName(e.target.value)} /> <br />
-              Email: <input type="text" value={email} name="email" onChange={e => setEmail(e.target.value)} /> <br />
-              Responded: (write only "true" or "false", without quotes):<input type="text" value={hasResponded} name="response" onChange={e => setResponseStatus(e.target.value)} /> <br></br>
-              Courses Assigned (separated by semicolons, only one space in each course name between the department name and the course code e.g.: "COSI 011A", uppercase letters only): <input type="text" value={''} name="name"  /> <br />
-              Blocks Available (separated by semicolons, no spaces, uppercase letters only): <input type="text" value={''} name="name" /> <br />
-              Assigned Blocks: <input type="text" value={''} name="name"  /> <br /> 
-            </label>
-            <input type="submit" value="Submit New Professor" />
-          </form>
-        </div>
-        <div class="col-lg-5 col-md-6 col-sm-6">
-          <center>Current list of professors:</center>
-          <br></br>
-          {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id}, Has Responded: {professor.hasResponded} <form onSubmit={(event) => handleDelete(event, professor.id)} > <input type="submit" value={"Delete Professor " + professor.name} /> </form></div>)}
-        </div>
+    <span>
+      <div class="col-lg-5 col-md-6 col-sm-6">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <center>New Professor Input Form:</center><br />  
+            Name: <input type="text" value={name} name="name" onChange={e => setName(e.target.value)} /> <br />
+            Email: <input type="text" value={email} name="email" onChange={e => setEmail(e.target.value)} /> <br />
+            Responded: (write only "true" or "false", without quotes):<input type="text" value={hasResponded} name="response" onChange={e => setResponseStatus(e.target.value)} /> <br></br>
+            Courses Assigned (separated by semicolons, only one space in each course name between the department name and the course code e.g.: "COSI 011A", uppercase letters only): <input type="text" value={''} name="name"  /> <br />
+            Blocks Available (separated by semicolons, no spaces, uppercase letters only): <input type="text" value={''} name="name" /> <br />
+            Assigned Blocks: <input type="text" value={''} name="name"  /> <br /> 
+          </label>
+          <input type="submit" value="Submit New Professor" />
+        </form>
       </div>
-    </div>
+      <div class="col-lg-5 col-md-6 col-sm-6">
+        <center>Current list of professors:</center>
+        <br></br>
+        {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id}, Has Responded: {professor.hasResponded} <form onSubmit={(event) => handleDelete(event, professor.id)} > <input type="submit" value={"Delete Professor " + professor.name} /> </form></div>)}
+      </div>
+    </span>
   )
 }
 // class TeacherUploader extends React.Component {

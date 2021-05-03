@@ -57,17 +57,12 @@ class SchedulingPage extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <div class="row">
-          <div class="col-lg-2 col-md-0 col-sm-0 menu-bar align-items-end">
-            <Navigation />
-          </div>
-          <div class="col-lg-5 col-md-6 col-sm-6">
-            <BlockSystem />
-          </div>
-          <div class="col-lg-5 col-md-6 col-sm-6">
-            <CourseSelection displayId={this.state.currentDisplay} />
-          </div>
+      <div>
+        <div class="col-lg-5 col-md-6 col-sm-6">
+          <BlockSystem />
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-6">
+          <CourseSelection displayId={this.state.currentDisplay} />
         </div>
       </div>
     );

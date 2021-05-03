@@ -16,9 +16,12 @@ import AcademicInfo from './AcademicInfo';
 const store = configureStore();
 
 ReactDOM.render((
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
+    </Provider>
+
     // <Provider store={store}>
     //   <AcademicInfo />
     // </Provider>

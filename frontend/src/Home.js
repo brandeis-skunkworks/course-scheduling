@@ -82,16 +82,7 @@ class SchedulingPage extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        {/* <form onSubmit={this.onSubmit}>
-          <input type="text" placeholder="Name" ref="name" />
-          <input type="text" placeholder="Email" ref="email" />
-          <input type="submit" />
-        </form> */}
-        <div class="row">
-          <div class="col-lg-2 col-md-0 col-sm-0 menu-bar align-items-end">
-            <Navigation />
-          </div>
+        <div>
           <div class="col-lg-5 col-md-6 col-sm-6">
             <table class="table">
               <thead class="thead-dark">
@@ -113,7 +104,6 @@ class SchedulingPage extends React.Component {
             
           </div>
         </div>
-      </div>
     );
   }
 }

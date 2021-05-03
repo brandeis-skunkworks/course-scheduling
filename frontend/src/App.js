@@ -15,8 +15,6 @@ function App(props) {
     <div className="App">
       <Main />
     </div>
-
-
   );
 }
 

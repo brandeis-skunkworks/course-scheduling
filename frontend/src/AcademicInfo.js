@@ -67,7 +67,7 @@ let CoursePage =({match, location})=> {
 
 
 
-class AcademicInfo extends Component {
+class App extends Component {
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -170,7 +170,8 @@ class AcademicInfo extends Component {
           <h1> Academic Requirements Form </h1>
             <hr />
               <div>
-                <h3>Add Course</h3>
+
+                Add Course
                 <form onSubmit={this.handleSubmit}>
                   <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/><br />
                   <input type="submit" className="btn btn-success" value="ADD"/>
@@ -180,6 +181,7 @@ class AcademicInfo extends Component {
             <div>
 
               <nav>
+                  Click on the course name to edit it
                 <ul>
                   {/* {courses.map((course, index) => (
                     <h5 key={index}>
@@ -194,7 +196,7 @@ class AcademicInfo extends Component {
                 </ul>
               </nav>
 
-              </div>
+            </div>
           </Col>
           <Col>
             <Switch>
@@ -224,4 +226,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AcademicInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
