@@ -29,7 +29,7 @@ function Navigation(props) {
     return (
       <div>
         <h3><SideButton name="Course Scheduling Platform" link="/"/> <div /></h3>
-        <SideButton name="Academic Info" /> <div />
+        <SideButton name="Academic Info" link="/academic-info" /> <div />
         <SideButton name="Professor Info Uploading" link="/teacher-uploader" />
         <SideButton name="Professor's Requirements" /> <div />
         <SideButton name="Professor Reminder" link="/teacher-reminder" />
