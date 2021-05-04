@@ -38,6 +38,11 @@ class PreferencesForm extends React.Component {
         { id: 3, value: "PREFERRED-3 (slightly preferred)" },
         { id: 4, value: "NO (you CANNOT teach in this block)" },
       ],
+      professorOptions: [
+        { id: 0, value: "Michael" },
+        { id: 1, value: "Tim" },
+        { id: 2, value: "Antonella" }
+      ],
       courseOptions: [
         { id: "GENERAL", value: "GENERAL (for more than 1 course)" },
         { id: "193COSI-10A-2", value: "193COSI-10A-2 : Introduction to Problem Solving in Python" },
@@ -82,6 +87,7 @@ class PreferencesForm extends React.Component {
     this.setState(prevState => ({
       value: {
         preference: -1,
+        professor: -1,
         indication: "",
         description: ""
       }
@@ -113,6 +119,14 @@ class PreferencesForm extends React.Component {
     return (
       <form className="text-center border border-primary p-3" onSubmit={this.handleSubmit}>
         <h3 className="form_title">BLOCK PICKED: {this.getName()} </h3>
+
+        <Select title={"Professor"}
+          name={"professor"}
+          options={this.state.professorOptions}
+          value={this.state.value.professor}
+          placeholder={"Select the professor that has this preference"}
+          handleChange={this.handleInput} />
+
         <Select title={"Preference"}
           name={"preference"}
           options={this.state.preferenceOptions}
@@ -147,6 +161,7 @@ class PreferencesForm extends React.Component {
         <h3 className="form_title">BLOCK PICKED: {this.getName()} </h3>
 
         <div className="content_submitted">
+          <h5>Professor: {"aaa"}</h5>
           <h5>Preference: {this.state.preferenceOptions.filter(val => val.id + "" === block_value.preference)[0].value.split(" ", 2)[0]}</h5>
           <h5>Indication: {block_value.indication}</h5>
           <h5>Description: {block_value.description}</h5>

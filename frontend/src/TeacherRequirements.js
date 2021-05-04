@@ -9,9 +9,6 @@ function TeacherRequirements() {
   return (
     <div className="App container-fluid">
       <div className="row">
-        <div className="col_1 col-xl-2 col-lg-2 col-md-0 col-sm-0 menu-bar align-items-end">
-          <Header />
-        </div>
         <div className="col_2 col-xl-4 col-lg-4 col-md-5 col-sm-5">
           <MainSection />
         </div>
@@ -27,33 +24,5 @@ function TeacherRequirements() {
   )
 }
 
-function Header() {
-  // return (
-  //   <div className="app_header">
-  //     <p>This is the header</p>
-  //   </div>
-  // );
-  return (
-    <div className="app_header">
-      <h2 className="app_name">Course Scheduling Platform</h2>
-      <div></div>
-      <SideButton name="Academic Info"/> <div/>
-      <SideButton name="Teacher's Req"/> <div/>
-      <SideButton name="Manual Scheduling"/> <div/>
-      <SideButton name="Automatic Scheduling"/> <div/>
-      <SideButton name="Contact"/> <div/>
-      <SideButton name="Export to CSV"/> <div/>
-      <SideButton name="Admin" link= "/Admin"/>
-    </div>
-  );
-}
-
-function SideButton(props) {
-  return (
-    <a href="#">
-      <button id={props.name} className="btn btn-link">{props.name}</button>
-    </a>
-  );
-}
 
 export default TeacherRequirements;

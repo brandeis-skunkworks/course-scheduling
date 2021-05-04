@@ -48,6 +48,7 @@ class MainSection extends React.Component {
           {this.props.isReviewing && <Review/>}
         </div>
 
+        <br></br><br></br><br></br>
         <div className="pref_main_buttons">
           {this.renderButton()}
         </div>

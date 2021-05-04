@@ -161,9 +161,9 @@ class App extends Component {
     let name;
     return ( 
       <div className="full-page">
-        <Navbar bg="dark" variant="dark">
+        {/* <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">Brandeis Course Scheduling</Navbar.Brand>
-        </Navbar>
+        </Navbar> */}
         <Router>
         <Row>
           <Col>
