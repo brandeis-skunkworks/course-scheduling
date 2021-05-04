@@ -13,8 +13,11 @@ function TeacherUploader(props)  {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [hasResponded, setResponseStatus] = useState('')
+  const [coursesAssigned, setCourses] = useState('')
+  const [blocksAvailable, setBlocksAvailable] = useState('')
+  const [blocksAssigned, setBlocksAssigned] = useState('')
+  const [requirements, setRequirements] = useState('')
   const [professors, setProfessors] = useState([])
-  // const [id, setID] = useState(0)
 
   useEffect(() => {
     fetch('http://localhost:1337/professor'
@@ -30,7 +33,7 @@ function TeacherUploader(props)  {
     fetch('http://localhost:1337/professor', {
         method: 'POST',
         // We convert the React state to JSON and send it as the POST body
-        body: JSON.stringify({name: name, email: email, hasResponded: hasResponded})
+        body: JSON.stringify({name: name, email: email, hasResponded: hasResponded, coursesAssigned: coursesAssigned, blocksAvailable: blocksAvailable, blocksAssigned: blocksAssigned, requirements: requirements})
       }).then(function(response) {
         // return response.json();
       }).then(fetch('http://localhost:1337/professor'
@@ -72,9 +75,10 @@ function TeacherUploader(props)  {
             Name: <input type="text" value={name} name="name" onChange={e => setName(e.target.value)} /> <br />
             Email: <input type="text" value={email} name="email" onChange={e => setEmail(e.target.value)} /> <br />
             Responded: (write only "true" or "false", without quotes):<input type="text" value={hasResponded} name="response" onChange={e => setResponseStatus(e.target.value)} /> <br></br>
-            Courses Assigned (separated by semicolons, only one space in each course name between the department name and the course code e.g.: "COSI 011A", uppercase letters only): <input type="text" value={''} name="name"  /> <br />
-            Blocks Available (separated by semicolons, no spaces, uppercase letters only): <input type="text" value={''} name="name" /> <br />
-            Assigned Blocks: <input type="text" value={''} name="name"  /> <br /> 
+            Courses Assigned (separated by semicolons, only one space in each course name between the department name and the course code e.g.: "COSI 011A", uppercase letters only): <input type="text" value={coursesAssigned} name="coursesAssigned" onChange={e => setCourses(e.target.value)} /> <br />
+            Blocks Available (separated by semicolons, no spaces, uppercase letters only): <input type="text" value={blocksAvailable} onChange={e => setBlocksAvailable(e.target.value)} name="blocksAvailable" /> <br />
+            Assigned Blocks: <input type="text" value={blocksAssigned}  name="assignedBlocks" onChange={e => setBlocksAssigned(e.target.value)} /> <br /> 
+            Requirements: <input type="text" value={requirements}  name="requirements" onChange={e => setRequirements(e.target.value)} /> <br /> 
           </label>
           <input type="submit" value="Submit New Professor" />
         </form>
@@ -82,7 +86,7 @@ function TeacherUploader(props)  {
       <div class="col-lg-5 col-md-6 col-sm-6">
         <center>Current list of professors:</center>
         <br></br>
-        {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id}, Has Responded: {professor.hasResponded} <form onSubmit={(event) => handleDelete(event, professor.id)} > <input type="submit" value={"Delete Professor " + professor.name} /> </form></div>)}
+        {professors.map(professor => <div>Name: {professor.name}, Email: {professor.email}, ID: {professor.id}, Has Responded: {professor.hasResponded}, coursesAssigned: {professor.coursesAssigned}, blocksAvailable: {professor.blocksAvailable}, blocksAssigned: {professor.blocksAssigned}, requirements: {professor.requirements} <form onSubmit={(event) => handleDelete(event, professor.id)} > <input type="submit" value={"Delete Professor " + professor.name} /> </form></div>)}
       </div>
     </span>
   )

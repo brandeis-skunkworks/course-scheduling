@@ -6,23 +6,23 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
-// import "semantic-ui-css/semantic.css"
-// import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 
-import {createStore} from 'redux';
-import rootReducer from './redux/reducers';
+// Rhosun's
+import configureStore from './store/configureStore';
+const store1 = configureStore();
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-// const store = configureStore();
+// Danny's
+// import {createStore} from 'redux';
+// import rootReducer from './redux/reducers';
+// const store2 = createStore(
+//   rootReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 
 ReactDOM.render((
-    <Provider store={store}>
+    <Provider store={store1}>
       <BrowserRouter>
           <App />
       </BrowserRouter>

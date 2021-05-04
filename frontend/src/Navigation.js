@@ -34,8 +34,8 @@ function Navigation(props) {
         <SideButton name="Professor's Requirements" link="/teacher-requirements"/> <div />
         <SideButton name="Professor Reminder" link="/teacher-reminder" />
         <SideButton name="Manual Scheduling" link="/scheduling"/> <div />
-        <SideButton name="Automatic Scheduling" /> <div />
-        <SideButton name="About" /> <div />
+        <SideButton name="Automatic Scheduling (not implemented)" /> <div />
+        <SideButton name="About" link="/about" /> <div />
       </div>
     );
   }

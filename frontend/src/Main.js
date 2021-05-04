@@ -23,6 +23,8 @@ const Main = () => {
           <Route exact path='/teacher-reminder'> <TeacherReminder /> </Route>
           <Route exact path='/teacher-uploader'> <TeacherUploader /> </Route>
           <Route exact path='/teacher-requirements'> <TeacherRequirements /> </Route>
+          <Route exact path='/about'> <div>Made with love by the Skunkworks Course Scheduling Team
+        [link to website here]</div> </Route>
         </Switch>
       </div>
     </div>
