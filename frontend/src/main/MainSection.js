@@ -3,10 +3,11 @@ import './MainSection.css';
 import AddPreferenceForm from '../pref-form/PrefForm'
 import Review from '../review/Review'
 
-import { connect } from 'react-redux';
-import { toggleReview, resetAll, removeChosenCourse } from '../redux/actions'
+import { connect, useDispatch } from 'react-redux';
+import { toggleReview, resetAll, removeChosenCourse, submitPreferences } from '../redux/actions'
 
 class MainSection extends React.Component {
+
   clearAll() {
     this.props.resetAll();
   }
@@ -14,6 +15,10 @@ class MainSection extends React.Component {
   review() {
     this.props.toggleReview();
     this.props.removeChosenCourse();
+  }
+
+  submit() {
+    this.props.submit();
   }
 
   renderButton() {
@@ -28,7 +33,7 @@ class MainSection extends React.Component {
       return (
         <div>
           <button type="button" className="btn_1 btn btn-warning" onClick={() => this.review()}>Back</button>
-          <button type="button" className="btn_2 btn btn-success" onClick={() => {}}>Submit</button>
+          <button type="button" className="btn_2 btn btn-success" onClick={() => this.submit()}>Submit</button>
         </div>
       );
     }
@@ -66,7 +71,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleReview: () => { dispatch(toggleReview()) },
     resetAll: () => { dispatch(resetAll()) },
-    removeChosenCourse: () => { dispatch(removeChosenCourse()) }
+    removeChosenCourse: () => { dispatch(removeChosenCourse()) },
+    submit: () => { dispatch( submitPreferences() )}
   };
 };
 

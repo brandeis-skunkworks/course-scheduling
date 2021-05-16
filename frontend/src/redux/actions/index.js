@@ -1,4 +1,4 @@
-export const chosenCourse = (course) => {
+ export const chosenCourse = (course) => {
     return {
         type: 'CHOOSE',
         payload: course
@@ -49,4 +49,9 @@ export const resetAll = () => {
     return {
         type: 'RESET_ALL'
     }
+}
+
+export const submitPreferences = () => async (dispatch, getState) => {
+    const preferences = getState().value;
+    console.log(preferences)
 }
