@@ -12,6 +12,11 @@ class TeacherForms extends Component {
         recitation: '',
         building: '',
     }
+
+    submit = () => {
+        console.log("submitting course to db");
+        // event.preventdefault();
+    }
     
     render() {
         return (
@@ -35,18 +40,18 @@ class TeacherForms extends Component {
                     </Form.Group>
                 </Form.Row>
 
-                {/* <Form.Row>
+                <Form.Row>
                     <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Dropdown example</Form.Label>
-                    <Form.Control as="select">
-                        <option>Choose...</option>
-                        <option>...</option>
-                    </Form.Control>
+                    <Form.Label>Assign a professor to this course:</Form.Label>
+                        <Form.Control as="select">
+                            <option>prof1</option>
+                            <option>...</option>
+                        </Form.Control>
                     </Form.Group>
-                </Form.Row> */}
+                </Form.Row>
 
-
-                <Button variant="primary" type="submit">
+                
+                <Button variant="primary" type="submit" onClick={() => {console.log("yay");}}>
                     Submit
                 </Button>
             </Form>
