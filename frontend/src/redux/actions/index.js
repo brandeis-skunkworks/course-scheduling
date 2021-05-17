@@ -53,5 +53,11 @@ export const resetAll = () => {
 
 export const submitPreferences = () => async (dispatch, getState) => {
     const preferences = getState().value;
-    console.log(preferences)
+
+    for (const [preferenceID, preference] of Object.entries(preferences)) {
+        fetch('http://localhost:1337/teacherpreference', {
+            method: 'POST',
+            body: JSON.stringify(preference)
+            })
+    }
 }
