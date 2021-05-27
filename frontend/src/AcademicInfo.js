@@ -8,18 +8,18 @@ import { connect } from "react-redux";
 import * as courseAction from "./actions/courseAction";
 import DynamicForm from "./components/DynamicForm";
 
-function ProfessorLoader(props) {
-  const [professors, setProfessors] = useState([]);
+// function ProfessorLoader(props) {
+//   const [professors, setProfessors] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:1337/professor")
-      .then((response) => response.json())
-      .then((data) => {
-        setProfessors(data);
-        console.log(data);
-      });
-  }, []);
-}
+//   useEffect(() => {
+//     fetch("http://localhost:1337/professor")
+//       .then((response) => response.json())
+//       .then((data) => {
+//         setProfessors(data);
+//         console.log(data);
+//       });
+//   }, []);
+// }
 
 let courses = [];
 let DataPage = ({ match, location }) => {
@@ -72,7 +72,7 @@ class App extends Component {
     this.state = {
       name: "",
     };
-    ProfessorLoader();
+    // ProfessorLoader();
     // this.courses = [];
     // fetch("http://localhost:1337/course")
     //   .then((response) => response.json())
