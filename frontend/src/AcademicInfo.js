@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 //import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import TeacherForms from "./components/TeacherForm";

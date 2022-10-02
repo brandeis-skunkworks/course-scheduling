@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
-import ModalBlock from './modal-block/Modal'
+import './components/App/App.css';
+import ModalBlock from './components/modal-block/Modal'
 import TimeBlockBoard from './block-sched/BlockSched'
 import ImageBlockSched from './block-sched/ImageBlockSched'
-import MainSection from './main/MainSection'
+import MainSection from './components/MainSection/MainSection'
 
 function TeacherRequirements() {
   return (

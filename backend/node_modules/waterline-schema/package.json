@@ -1,0 +1,35 @@
+{
+  "name": "waterline-schema",
+  "description": "The core schema builder used in the Waterline ORM.",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sailshq/lodash": "^3.10.2",
+    "flaverr": "^1.8.1",
+    "rttc": "^10.0.0-1"
+  },
+  "devDependencies": {
+    "eslint": "3.19.0",
+    "mocha": "3.0.2"
+  },
+  "keywords": [
+    "mvc",
+    "sails",
+    "sailsjs",
+    "sails.js",
+    "orm",
+    "waterline",
+    "active-record"
+  ],
+  "repository": "git://github.com/balderdashy/waterline-schema.git",
+  "homepage": "http://github.com/balderdashy/waterline-schema",
+  "main": "lib/waterline-schema.js",
+  "scripts": {
+    "custom-tests": "NODE_ENV=test node ./node_modules/mocha/bin/mocha test --reporter dot --recursive",
+    "test": "npm run lint && npm run custom-tests",
+    "lint": "node ./node_modules/eslint/bin/eslint . --max-warnings=0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/balderdashy/waterline-schema/issues/new"
+  }
+}

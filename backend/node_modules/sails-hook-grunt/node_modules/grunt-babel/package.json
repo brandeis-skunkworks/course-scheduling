@@ -1,0 +1,47 @@
+{
+  "name": "grunt-babel",
+  "version": "7.0.0",
+  "description": "Use next generation JavaScript, today",
+  "license": "MIT",
+  "repository": "babel/grunt-babel",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && grunt"
+  },
+  "files": [
+    "tasks"
+  ],
+  "keywords": [
+    "gruntplugin",
+    "babel",
+    "transpiler",
+    "es2015",
+    "rewriting",
+    "transformation",
+    "syntax",
+    "codegen",
+    "desugaring",
+    "javascript",
+    "compiler"
+  ],
+  "peerDependencies": {
+    "babel-core": "^6.0.0 || ^7.0.0-alpha",
+    "grunt": ">=0.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "7.0.0-alpha.19",
+    "babel-preset-env": "2.0.0-alpha.19",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "xo": "^0.16.0"
+  }
+}

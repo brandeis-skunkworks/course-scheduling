@@ -3,4 +3,4 @@
 
 object = { name: "aaa" };
 
-console.log(objec);
+console.log(object);

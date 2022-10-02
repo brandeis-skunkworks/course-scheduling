@@ -1,0 +1,72 @@
+{
+  "machine": "resolve",
+  "expectations": [
+
+
+    // ========================================================================
+    // WITH URL ONLY
+    // ========================================================================
+
+    // Without protocol, but w/ hostname (should work)
+    {
+      "using": {
+        "url": "google.com"
+      },
+      "outcome": "success",
+      "returns": "http://google.com"
+    },
+
+    // As naked path (should fail)
+    {
+      "using": {
+        "url": "/baz"
+      },
+      "outcome": "error"
+    },
+
+    // With hostname and protocol (should work)
+    {
+      "using": {
+        "url": "https://google.com/baby-bunnies/cam"
+      },
+      "outcome": "success",
+      "returns": "https://google.com/baby-bunnies/cam"
+    },
+
+    // With hostname + path + querystring
+    {
+      "using": {
+        "url": "google.com/baby-bunnies/cam?playhead=3:42"
+      },
+      "outcome": "success",
+      "returns": "http://google.com/baby-bunnies/cam?playhead=3:42"
+    },
+
+
+    // ========================================================================
+    // WITH BASE URL TOO
+    // ========================================================================
+
+    // With valid baseUrl and `url` provided as a naked path (should work)
+    {
+      "using": {
+        "baseUrl": "https://google.com/baby-bunnies",
+        "url": "/cam"
+      },
+      "outcome": "success",
+      "returns": "https://google.com/baby-bunnies/cam"
+    },
+
+    // With valid baseUrl and `url` provided as a naked path with a querystring
+    // (should work, and also not double-encode everything)
+    {
+      "using": {
+        "baseUrl": "https://google.com/baby-bunnies",
+        "url": "/cam?playhead=3:42"
+      },
+      "outcome": "success",
+      "returns": "https://google.com/baby-bunnies/cam?playhead=3:42"
+    }
+
+  ]
+}

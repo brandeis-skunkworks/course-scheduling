@@ -1,6 +1,6 @@
 import React from 'react';
 // import './Admin.css';
-import Navigation from './Navigation.js';
+import Navigation from './components/navigation/Navigation.js';
 import { useState, useEffect } from 'react';
 
 import { Link } from 'react-router-dom';

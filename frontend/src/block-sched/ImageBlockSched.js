@@ -4,10 +4,10 @@ import './BlockSched.css';
 import blocks from './blocks';
 import blocks_pic from '../img/blocks.png';
 import mapAreas from './img-areas-map';
-import ImageMapper from 'react-image-mapper';
+// import ImageMapper from 'react-image-mapper';
 
-import {connect} from 'react-redux';
-import {chosenCourse, removeChosenCourse, addChosenCourse, deleteChosenCourse} from '../redux/actions';
+import { connect } from 'react-redux';
+import { chosenCourse, removeChosenCourse, addChosenCourse, deleteChosenCourse } from '../redux/actions';
 
 class ImageBlockSched extends React.Component {
     constructor(props) {
@@ -28,27 +28,27 @@ class ImageBlockSched extends React.Component {
     chooseColor(block) {
         let color = "rgba(192,192,192,0.3)"; // grey opaque
         const id = block.id;
-        
+
         if (id in this.props.value) {
-          const pref = this.props.value[id];
-    
-          switch (pref.preference) {
-            case "0": // MUST 
-                color = "rgba(255,0,0,0.3)" // red opaque
-              break;
-            case "1": // PREFERRED
-            case "2":
-            case "3":
-                color = "rgba(255,255,0,0.3)" // yellow opaque
-              break;
-    
-            case "4": // NO
-                color = "rgba(0, 0, 0, 0.5)" // black opaque
-              break;
-    
-            default: // DEFAULT (NOT CHOSEN / IN REVIEW MODE)
-                color = "rgba(192,192,192,0.3)"; // grey opaque
-          }
+            const pref = this.props.value[id];
+
+            switch (pref.preference) {
+                case "0": // MUST 
+                    color = "rgba(255,0,0,0.3)" // red opaque
+                    break;
+                case "1": // PREFERRED
+                case "2":
+                case "3":
+                    color = "rgba(255,255,0,0.3)" // yellow opaque
+                    break;
+
+                case "4": // NO
+                    color = "rgba(0, 0, 0, 0.5)" // black opaque
+                    break;
+
+                default: // DEFAULT (NOT CHOSEN / IN REVIEW MODE)
+                    color = "rgba(192,192,192,0.3)"; // grey opaque
+            }
         } else if (!this.props.review && (id in this.props.chosen_courses)) {
             color = "rgba(0,255,0,0.3)" // green opaque (CHOSEN - REVIEW MODE)
         }
@@ -70,9 +70,9 @@ class ImageBlockSched extends React.Component {
             // if this block is not chosen and the page is not in reviewing mode:
             // delete all chosen submitted blocks
             Object.entries(this.props.chosen_courses).map(arr => arr[1]).forEach(val => {
-              if (val.id in this.props.value) {
-                this.props.deleteChosenCourse(val.id);
-              }
+                if (val.id in this.props.value) {
+                    this.props.deleteChosenCourse(val.id);
+                }
             });
             // add to the chosen blocks list
             this.props.chosenCourse(course);
@@ -80,10 +80,10 @@ class ImageBlockSched extends React.Component {
         }
     }
 
-	clicked(area) {
+    clicked(area) {
         console.log(`You clicked on ${area.name}!`);
         const blockName = area.name.split("-")[0];
-        
+
         const course = this.findBlockByName(blockName);
         this.handleClick(course);
     }
@@ -104,13 +104,13 @@ class ImageBlockSched extends React.Component {
     render() {
         const URL = blocks_pic;
         const MAP = {
-          name: "my-map",
-          areas: this.changeBlockColor()
+            name: "my-map",
+            areas: this.changeBlockColor()
         }
 
         return (
             <div className="pref_block">
-                <Mapper url={URL} map={MAP} load={this.load} clicked={this.clicked}/>
+                <Mapper url={URL} map={MAP} load={this.load} clicked={this.clicked} />
             </div>
         );
     }
@@ -119,7 +119,7 @@ class ImageBlockSched extends React.Component {
 function Mapper(props) {
     return (
         <div className="container">
-            <ImageMapper src={props.url} map={props.map} width={800} imgWidth={1472} onLoad={props.load} onClick={area => props.clicked(area)}/>
+            {/* <ImageMapper src={props.url} map={props.map} width={800} imgWidth={1472} onLoad={props.load} onClick={area => props.clicked(area)}/> */}
         </div>
     )
 }
@@ -132,12 +132,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    chosenCourse: (chosen) => { dispatch(chosenCourse(chosen)) } ,
-    removeChosenCourse: () => { dispatch(removeChosenCourse()) },
-    addChosenCourse: (chosen) => { dispatch(addChosenCourse(chosen)) },
-    deleteChosenCourse: (id) => { dispatch(deleteChosenCourse(id)) },
-  };
+    return {
+        chosenCourse: (chosen) => { dispatch(chosenCourse(chosen)) },
+        removeChosenCourse: () => { dispatch(removeChosenCourse()) },
+        addChosenCourse: (chosen) => { dispatch(addChosenCourse(chosen)) },
+        deleteChosenCourse: (id) => { dispatch(deleteChosenCourse(id)) },
+    };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps) (ImageBlockSched);
+export default connect(mapStateToProps, mapDispatchToProps)(ImageBlockSched);

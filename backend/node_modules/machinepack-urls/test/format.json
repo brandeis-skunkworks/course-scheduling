@@ -1,0 +1,26 @@
+{
+  "machine": "format",
+  "expectations": [
+    {
+      "using": {
+        "urlTemplate": "/api/v1/users/:id",
+        "data": {
+          "id": 4
+        }
+      },
+      "outcome": "success",
+      "returns": "/api/v1/users/4"
+    },
+    {
+      "using": {
+        "urlTemplate": "/api/v1/users/:id/arms/:armId",
+        "data": {
+          "id": 4,
+          "armId": "right"
+        }
+      },
+      "outcome": "success",
+      "returns": "/api/v1/users/4/arms/right"
+    }
+  ]
+}
