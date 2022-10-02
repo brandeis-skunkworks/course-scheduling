@@ -1,4 +1,6 @@
 # Vagrant
+Using Ubuntu 18.04.4 LTS:
+
 To install this in your system:
 
 Open your command prompt and type:
